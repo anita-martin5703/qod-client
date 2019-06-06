@@ -1,5 +1,4 @@
 # Wireframe
 
-
-* example below
-[Wireframe Diagram](WireframeBeerBuddy.png)
+Here is the link to my
+[wireframe Diagram](WireframeBeerBuddy.png).
