@@ -12,16 +12,16 @@ you will have access to the newest spots that are opening up. Lastly you will al
 Breweries that are in the area. Persist data I would like to keep the user’s favorite beer places and 
 previous drink searches.
 
-* [User stories](user-stories.md)
+* [User stories](docs/user-stories.md)
 
-* [Wireframes](wireframes.md)
+* [Wireframes](docs/wireframes.md)
 
   * [Wireframes with Annotations](WireframesBeerBuddyWithAnnotations.png)
   
   * [Wireframes with Annotations](WireframesBeerBuddyWithAnnotations.pdf)
 
-* [1st ERD](erd.md)
-    *  ![ERD in pdf](ERD-1.pdf)
+* [1st ERD](docs/erd.md)
+    *  ![ERD in pdf](docs/ERD-1.pdf)
          
-    *  ![ERD in png](ERD-1.png)
+    *  ![ERD in png](docs/ERD-1.png)
     
