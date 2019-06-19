@@ -14,3 +14,7 @@ previous drink searches.
 
 * [User stories](docs/user-stories.md)
 * [Wireframes](docs/wireframes.md)
+* [1st ERD](docs/erd.md)
+    *  ![ERD in pdf](ERD-1.pdf)
+         
+    *  ![ERD in png](ERD-1.png)
