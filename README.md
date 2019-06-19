@@ -16,12 +16,11 @@ previous drink searches.
 
 * [Wireframes](docs/wireframes.md)
 
-  * [Wireframes with Annotations](WireframesBeerBuddyWithAnnotations.png)
-  
-  * [Wireframes with Annotations](WireframesBeerBuddyWithAnnotations.pdf)
-
 * [1st ERD](docs/erd.md)
+
+    *  ![ERD in png](docs/ERD-1.png)
+    
     *  ![ERD in pdf](docs/ERD-1.pdf)
          
-    *  ![ERD in png](docs/ERD-1.png)
+
     
