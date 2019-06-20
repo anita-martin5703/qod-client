@@ -1,41 +1,39 @@
-package edu.cnm.deepdive.beer_buddy;
+package edu.cnm.deepdive.beer_buddy.model.Entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
 @Entity(
     foreignKeys = {
         @ForeignKey(
-            entity = Entity.class,
-            parentColumns = " ",
-            childColumns = " ",
+            entity = Beer.class,
+            parentColumns = "id",
+            childColumns = "id",
             onDelete = ForeignKey.CASCADE
         )
     }
 )
-public class BarListing {
+public class Bar {
 
-  @ColumnInfo(name = "id", index = true)
+  @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @ColumnInfo(name = "name")
   private String name;
 
-  @ColumnInfo(name = "status")
   private String status;
 
-  @ColumnInfo(name = "street")
   private String street;
 
-  @ColumnInfo(name = "state")
   private String state;
 
-  @ColumnInfo(name = "zip")
-  private int zip;
+  private String zip;
 
-  @ColumnInfo(name = "number")
   private int number;
+
+  @ColumnInfo(name = "projected_date", index = true)
+  private String projectedDate;
 
 
 
@@ -43,7 +41,7 @@ public class BarListing {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 
@@ -79,19 +77,29 @@ public class BarListing {
     this.state = state;
   }
 
-  public int getZip() {
+  public String getZip() {
     return zip;
   }
 
-  public void setZip(int zip) {
+  public void setZip(String zip) {
     this.zip = zip;
   }
 
-  public int getBarPhoneNumber() {
+  public int getNumber() {
     return number;
   }
 
-  public void setBarPhoneNumber(int barPhoneNumber) {
-    this.number = barPhoneNumber;
+  public void setNumber(int number) {
+    this.number = number;
   }
+
+  public String getProjectedDate() {
+    return projectedDate;
+  }
+
+  public void setProjectedDate(String projectedDate) {
+    this.projectedDate = projectedDate;
+  }
+
+
 }

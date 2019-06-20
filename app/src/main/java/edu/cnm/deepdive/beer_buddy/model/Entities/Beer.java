@@ -1,27 +1,25 @@
-package edu.cnm.deepdive.beer_buddy;
+package edu.cnm.deepdive.beer_buddy.model.Entities;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
 @Entity(
     foreignKeys = {
         @ForeignKey(
-            entity = Entity.class,
-            parentColumns = " ",
-            childColumns = " ",
+            entity = Bar.class,
+            parentColumns = "id",
+            childColumns = "id",
             onDelete = ForeignKey.CASCADE
         )
     }
 )
-  public class BeerListing {
+  public class Beer {
 
-  @ColumnInfo(name = "id", index = true)
+  @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @ColumnInfo(name = "name")
   private String name;
-
 
 
   public long getId() {
