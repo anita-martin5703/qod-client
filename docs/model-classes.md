@@ -51,7 +51,7 @@
     C. Search
     D. Set Location
 
-### Top Breweries REPLACING with Happy Hour Class (Type Unknown)
+### Happy Hour Class (Type Unknown)
     A. Happy Hour happening near you
 
 ### On the RiSe Class (Type unknown)
