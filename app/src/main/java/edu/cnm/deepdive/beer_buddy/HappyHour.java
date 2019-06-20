@@ -2,33 +2,44 @@ package edu.cnm.deepdive.beer_buddy;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 
-@Entity
+@Entity(
+    foreignKeys = {
+        @ForeignKey(
+            entity = Entity.class,
+            parentColumns = "happy_hour_id",
+            childColumns = "beer_id",
+            onDelete = ForeignKey.CASCADE
+        )
+    }
+)
 public class HappyHour {
 
-  private int happyhourid;
+  @ColumnInfo(name = "happy_hour_id", index = true)
+  private long happyhourId;
 
-  private String barname;
+  @ColumnInfo(name = "bar_name")
+  private String barName;
 
   private int happyhourtime;
 
 
-  @ColumnInfo(name = "id")
-  public int getHappyhourid() {
-    return happyhourid;
+
+  public long getHappyhourId() {
+    return happyhourId;
   }
 
-  public void setHappyhourid(int happyhourid) {
-    this.happyhourid = happyhourid;
+  public void setHappyhourId(int happyhourId) {
+    this.happyhourId = happyhourId;
   }
 
-  @ColumnInfo(name = "name")
-  public String getBarname() {
-    return barname;
+  public String getBarName() {
+    return barName;
   }
 
-  public void setBarname(String barname) {
-    this.barname = barname;
+  public void setBarName(String barName) {
+    this.barName = barName;
   }
 
   public int getHappyhourtime() {

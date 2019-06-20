@@ -2,84 +2,96 @@ package edu.cnm.deepdive.beer_buddy;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 
-@Entity
+@Entity(
+    foreignKeys = {
+        @ForeignKey(
+            entity = Entity.class,
+            parentColumns = "bar_id",
+            childColumns = "beer_id",
+            onDelete = ForeignKey.CASCADE
+        )
+    }
+)
 public class BarListing {
 
-  private int barid;
+  @ColumnInfo(name = "bar_id", index = true)
+  private long barId;
 
-  private String barname;
+  @ColumnInfo(name = "bar_name")
+  private String barName;
 
-  private String barstatus;
+  @ColumnInfo(name = "bar_status")
+  private String barStatus;
 
-  private String barstreet;
+  @ColumnInfo(name = "bar_street")
+  private String barStreet;
 
-  private String barstate;
+  @ColumnInfo(name = "bar_state")
+  private String barState;
 
-  private int barzip;
+  @ColumnInfo(name = "bar_zip")
+  private int barZip;
 
-  private int barphonenumber;
+  @ColumnInfo(name = "bar_phone_number")
+  private int barPhoneNumber;
 
 
-  @ColumnInfo(name = "id")
-  public int getBarid() {
-    return barid;
+
+  public long getBarId() {
+    return barId;
   }
 
-  public void setBarid(int barid) {
-    this.barid = barid;
+  public void setBarId(int barId) {
+    this.barId = barId;
   }
 
-  @ColumnInfo(name = "name")
-  public String getBarname() {
-    return barname;
+  public String getBarName() {
+    return barName;
   }
 
-  public void setBarname(String barname) {
-    this.barname = barname;
+  public void setBarName(String barName) {
+    this.barName = barName;
   }
 
-  @ColumnInfo(name = "status")
-  public String getBarstatus() {
-    return barstatus;
+  public String getBarStatus() {
+    return barStatus;
   }
 
-  public void setBarstatus(String barstatus) {
-    this.barstatus = barstatus;
-  }
-  @ColumnInfo(name = "street")
-  public String getBarstreet() {
-    return barstreet;
+  public void setBarStatus(String barStatus) {
+    this.barStatus = barStatus;
   }
 
-  public void setBarstreet(String barstreet) {
-    this.barstreet = barstreet;
+  public String getBarStreet() {
+    return barStreet;
   }
 
-  @ColumnInfo(name = "state")
-  public String getBarstate() {
-    return barstate;
+  public void setBarStreet(String barStreet) {
+    this.barStreet = barStreet;
   }
 
-  public void setBarstate(String barstate) {
-    this.barstate = barstate;
+  public String getBarState() {
+    return barState;
   }
 
-  @ColumnInfo(name = "zip")
-  public int getBarzip() {
-    return barzip;
+  public void setBarState(String barState) {
+    this.barState = barState;
   }
 
-  public void setBarzip(int barzip) {
-    this.barzip = barzip;
+  public int getBarZip() {
+    return barZip;
   }
 
-  @ColumnInfo(name = "phone")
-  public int getBarphonenumber() {
-    return barphonenumber;
+  public void setBarZip(int barZip) {
+    this.barZip = barZip;
   }
 
-  public void setBarphonenumber(int barphonenumber) {
-    this.barphonenumber = barphonenumber;
+  public int getBarPhoneNumber() {
+    return barPhoneNumber;
+  }
+
+  public void setBarPhoneNumber(int barPhoneNumber) {
+    this.barPhoneNumber = barPhoneNumber;
   }
 }
