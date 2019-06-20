@@ -11,11 +11,11 @@
     android:theme="@style/AppTheme">
     <activity
       android:label="@string/app_name"
-      android:beerName=".MainActivity">
+      android:name=".MainActivity">
       <intent-filter>
-        <action android:beerName="android.intent.action.MAIN"/>
+        <action android:name="android.intent.action.MAIN"/>
 
-        <category android:beerName="android.intent.category.LAUNCHER"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
   </application>

@@ -8,35 +8,35 @@ import androidx.room.ForeignKey;
     foreignKeys = {
         @ForeignKey(
             entity = Entity.class,
-            parentColumns = "beer_id",
-            childColumns = "bar_id",
+            parentColumns = " ",
+            childColumns = " ",
             onDelete = ForeignKey.CASCADE
         )
     }
 )
   public class BeerListing {
 
-  @ColumnInfo(name = "beer_id", index = true)
-  private long beerId;
+  @ColumnInfo(name = "id", index = true)
+  private long id;
 
-  @ColumnInfo(name = "beer_name")
-  private String beerName;
+  @ColumnInfo(name = "name")
+  private String name;
 
 
 
-  public long getBeerId() {
-    return beerId;
+  public long getId() {
+    return id;
   }
 
-  public void setBeerId(int beerId) {
-    this.beerId = beerId;
+  public void setId(int id) {
+    this.id = id;
   }
 
-  public String getBeerName() {
-    return beerName;
+  public String getName() {
+    return name;
   }
 
-  public void setBeerName(String beerName) {
-    this.beerName = beerName;
+  public void setName(String name) {
+    this.name = name;
   }
 }

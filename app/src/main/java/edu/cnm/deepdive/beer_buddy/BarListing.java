@@ -8,90 +8,90 @@ import androidx.room.ForeignKey;
     foreignKeys = {
         @ForeignKey(
             entity = Entity.class,
-            parentColumns = "bar_id",
-            childColumns = "beer_id",
+            parentColumns = " ",
+            childColumns = " ",
             onDelete = ForeignKey.CASCADE
         )
     }
 )
 public class BarListing {
 
-  @ColumnInfo(name = "bar_id", index = true)
-  private long barId;
+  @ColumnInfo(name = "id", index = true)
+  private long id;
 
-  @ColumnInfo(name = "bar_name")
-  private String barName;
+  @ColumnInfo(name = "name")
+  private String name;
 
-  @ColumnInfo(name = "bar_status")
-  private String barStatus;
+  @ColumnInfo(name = "status")
+  private String status;
 
-  @ColumnInfo(name = "bar_street")
-  private String barStreet;
+  @ColumnInfo(name = "street")
+  private String street;
 
-  @ColumnInfo(name = "bar_state")
-  private String barState;
+  @ColumnInfo(name = "state")
+  private String state;
 
-  @ColumnInfo(name = "bar_zip")
-  private int barZip;
+  @ColumnInfo(name = "zip")
+  private int zip;
 
-  @ColumnInfo(name = "bar_phone_number")
-  private int barPhoneNumber;
+  @ColumnInfo(name = "number")
+  private int number;
 
 
 
-  public long getBarId() {
-    return barId;
+  public long getId() {
+    return id;
   }
 
-  public void setBarId(int barId) {
-    this.barId = barId;
+  public void setId(int id) {
+    this.id = id;
   }
 
-  public String getBarName() {
-    return barName;
+  public String getName() {
+    return name;
   }
 
-  public void setBarName(String barName) {
-    this.barName = barName;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getBarStatus() {
-    return barStatus;
+  public String getStatus() {
+    return status;
   }
 
-  public void setBarStatus(String barStatus) {
-    this.barStatus = barStatus;
+  public void setStatus(String status) {
+    this.status = status;
   }
 
-  public String getBarStreet() {
-    return barStreet;
+  public String getStreet() {
+    return street;
   }
 
-  public void setBarStreet(String barStreet) {
-    this.barStreet = barStreet;
+  public void setStreet(String street) {
+    this.street = street;
   }
 
-  public String getBarState() {
-    return barState;
+  public String getState() {
+    return state;
   }
 
-  public void setBarState(String barState) {
-    this.barState = barState;
+  public void setState(String state) {
+    this.state = state;
   }
 
-  public int getBarZip() {
-    return barZip;
+  public int getZip() {
+    return zip;
   }
 
-  public void setBarZip(int barZip) {
-    this.barZip = barZip;
+  public void setZip(int zip) {
+    this.zip = zip;
   }
 
   public int getBarPhoneNumber() {
-    return barPhoneNumber;
+    return number;
   }
 
   public void setBarPhoneNumber(int barPhoneNumber) {
-    this.barPhoneNumber = barPhoneNumber;
+    this.number = barPhoneNumber;
   }
 }

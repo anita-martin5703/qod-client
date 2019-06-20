@@ -8,18 +8,18 @@ import androidx.room.ForeignKey;
     foreignKeys = {
         @ForeignKey(
             entity = Entity.class,
-            parentColumns = "happy_hour_id",
-            childColumns = "beer_id",
+            parentColumns = " ",
+            childColumns = " ",
             onDelete = ForeignKey.CASCADE
         )
     }
 )
 public class HappyHour {
 
-  @ColumnInfo(name = "happy_hour_id", index = true)
+  @ColumnInfo(name = "id", index = true)
   private long happyhourId;
 
-  @ColumnInfo(name = "bar_name")
+  @ColumnInfo(name = "name")
   private String barName;
 
   private int happyhourtime;
