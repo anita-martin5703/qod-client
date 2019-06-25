@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.beer_buddy.model.Entities;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -19,6 +20,9 @@ import androidx.room.PrimaryKey;
   @PrimaryKey(autoGenerate = true)
   private long id;
 
+  @ColumnInfo(name = "beer_id", index = true)
+  private long beerId;
+
   private String name;
 
 
@@ -26,8 +30,16 @@ import androidx.room.PrimaryKey;
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
+  }
+
+  public long getBeerId() {
+    return beerId;
+  }
+
+  public void setBeerId(long beerId) {
+    this.beerId = beerId;
   }
 
   public String getName() {

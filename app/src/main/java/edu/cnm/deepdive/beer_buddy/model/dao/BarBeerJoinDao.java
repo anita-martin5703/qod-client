@@ -15,8 +15,8 @@ public interface BarBeerJoinDao {
   void insert (BarBeerJoin barBeerJoin);
 
   @Query("SELECT * FROM beer INNER JOIN BarBeerJoin ON " +
-      "Beer.id = BarBeerJoin.barId WHERE " +
-      "BarBeerJoin.beerId = :beerId")
+      "Beer.id = BarBeerJoin.bar_id WHERE " +
+      "BarBeerJoin.beer_id = :beerId")
   LiveData<List<Beer>> barBeerjointable (long beerId);
 
 }

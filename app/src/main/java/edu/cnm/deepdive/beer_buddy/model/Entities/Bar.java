@@ -20,6 +20,17 @@ public class Bar {
   @PrimaryKey(autoGenerate = true)
   private long id;
 
+  @ColumnInfo(name = "bar_id", index = true)
+  private long barId;
+
+  public long getBarId() {
+    return barId;
+  }
+
+  public void setBarId(long barId) {
+    this.barId = barId;
+  }
+
   private String name;
 
   private String status;
