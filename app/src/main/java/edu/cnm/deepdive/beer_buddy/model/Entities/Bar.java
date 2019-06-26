@@ -19,9 +19,18 @@ public class Bar {
 
   @PrimaryKey(autoGenerate = true)
   private long id;
-
   @ColumnInfo(name = "bar_id", index = true)
   private long barId;
+  private String name;
+  private String status;
+  private String street;
+  private String state;
+  private String zip;
+  private int number;
+  @ColumnInfo(name = "projected_date", index = true)
+  private String projectedDate;
+
+
 
   public long getBarId() {
     return barId;
@@ -30,23 +39,6 @@ public class Bar {
   public void setBarId(long barId) {
     this.barId = barId;
   }
-
-  private String name;
-
-  private String status;
-
-  private String street;
-
-  private String state;
-
-  private String zip;
-
-  private int number;
-
-  @ColumnInfo(name = "projected_date", index = true)
-  private String projectedDate;
-
-
 
   public long getId() {
     return id;

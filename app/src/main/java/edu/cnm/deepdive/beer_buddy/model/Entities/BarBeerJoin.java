@@ -20,9 +20,9 @@ public class BarBeerJoin {
 
   @ColumnInfo(name = "beer_id")
   private long beerId;
-
   @ColumnInfo(name = "bar_id")
   private long barId;
+
 
 
   public long getBeerId() {

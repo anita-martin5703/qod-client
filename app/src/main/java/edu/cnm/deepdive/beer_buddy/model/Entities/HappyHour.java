@@ -19,12 +19,9 @@ public class HappyHour {
 
   @PrimaryKey(autoGenerate = true)
   private long id;
-
   @ColumnInfo(name = "bar_id", index = true)
   private long barId;
-
   private String hours;
-
   private String weekdays;
 
 

@@ -19,10 +19,8 @@ import androidx.room.PrimaryKey;
 
   @PrimaryKey(autoGenerate = true)
   private long id;
-
   @ColumnInfo(name = "beer_id", index = true)
   private long beerId;
-
   private String name;
 
 
