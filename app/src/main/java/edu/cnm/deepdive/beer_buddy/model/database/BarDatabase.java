@@ -1,9 +1,12 @@
 package edu.cnm.deepdive.beer_buddy.model.database;
 
 import android.content.Context;
+import android.os.AsyncTask;
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 import edu.cnm.deepdive.beer_buddy.model.Entities.Bar;
 import edu.cnm.deepdive.beer_buddy.model.Entities.BarBeerJoin;
 import edu.cnm.deepdive.beer_buddy.model.Entities.Beer;
@@ -11,8 +14,7 @@ import edu.cnm.deepdive.beer_buddy.model.dao.BarBeerJoinDao;
 import edu.cnm.deepdive.beer_buddy.model.dao.BarDao;
 import edu.cnm.deepdive.beer_buddy.model.dao.BeerDao;
 
-@Database(entities = {Bar.class, Beer.class, BarBeerJoin.class},
-    version = 1, exportSchema = true)
+@Database(entities = {Bar.class, Beer.class, BarBeerJoin.class}, version = 1)
 public abstract class BarDatabase extends RoomDatabase {
 
   public abstract BarDao getBarListingDao();
@@ -21,15 +23,45 @@ public abstract class BarDatabase extends RoomDatabase {
 
   public abstract BarBeerJoinDao barBeerJoinDao();
 
-
   private static BarDatabase INSTANCE;
 
-  public static BarDatabase getInstance(Context context){
-    if (INSTANCE == null){
+  public static BarDatabase getInstance(Context context) {
+    if (INSTANCE == null) {
+      synchronized (BarDatabase.class) {
+        if (INSTANCE == null){
         INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-            BarDatabase.class, "bar_room").build();
+            BarDatabase.class, "bar_room")
+            .fallbackToDestructiveMigration()
+            .addCallback(new Callback() {
+              @Override
+              public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                super.onCreate(db);
+                new PopulateDbTask(INSTANCE).execute();
+              }
+            }).build();
+      }
     }
+  }
     return INSTANCE;
   }
 
+  private static class PopulateDbTask extends AsyncTask<Void, Void, Void> {
+
+    private final BarDatabase db;
+
+    PopulateDbTask(BarDatabase db) {
+      this.db = db;
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+      Bar marble = new Bar();
+      marble.setName("Marble");
+      marble.setStreet("First and Lomas");
+      marble.setState("NM");
+      marble.setZip("87102");
+      db.getBarListingDao().insert(marble);
+      return null;
+    }
+  }
 }
