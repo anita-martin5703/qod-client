@@ -5,16 +5,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(
-    foreignKeys = {
-        @ForeignKey(
-            entity = Bar.class,
-            parentColumns = "id",
-            childColumns = "id",
-            onDelete = ForeignKey.CASCADE
-        )
-    }
-)
+@Entity
   public class Beer {
 
   @PrimaryKey(autoGenerate = true)

@@ -2,10 +2,14 @@ package edu.cnm.deepdive.beer_buddy;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import edu.cnm.deepdive.beer_buddy.model.Entities.Bar;
+import edu.cnm.deepdive.beer_buddy.model.database.BarDatabase;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    BarDatabase.getInstance(this).getBarListingDao().getAll().observe(this,
+        new Observer<List<Bar>>() {
+          @Override
+          public void onChanged(List<Bar> bars) {
+            //Do Nothing
+          }
+        });
+
 
     mTextMessage = (TextView) findViewById(R.id.message);
     BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
