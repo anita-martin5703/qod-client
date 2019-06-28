@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
-import edu.cnm.deepdive.beer_buddy.model.Entities.Bar;
+import edu.cnm.deepdive.beer_buddy.model.entities.Bar;
 import edu.cnm.deepdive.beer_buddy.model.database.BarDatabase;
 import java.util.List;
 

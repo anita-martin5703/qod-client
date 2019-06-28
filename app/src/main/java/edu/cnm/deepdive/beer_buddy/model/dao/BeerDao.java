@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import edu.cnm.deepdive.beer_buddy.model.Entities.Bar;
-import edu.cnm.deepdive.beer_buddy.model.Entities.Beer;
+import edu.cnm.deepdive.beer_buddy.model.entities.Bar;
+import edu.cnm.deepdive.beer_buddy.model.entities.Beer;
 import java.util.List;
 
 @Dao

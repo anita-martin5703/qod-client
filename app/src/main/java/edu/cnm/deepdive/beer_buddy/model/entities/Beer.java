@@ -1,8 +1,7 @@
-package edu.cnm.deepdive.beer_buddy.model.Entities;
+package edu.cnm.deepdive.beer_buddy.model.entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity
