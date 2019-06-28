@@ -14,7 +14,7 @@ public interface BeerDao {
   @Insert
   long insert(Beer beer);
 
-  @Query("SELECT * FROM bar")
-  LiveData<List<Bar>> getAll();
+  @Query("SELECT * FROM beer")
+  LiveData<List<Beer>> getAll();
 
 }

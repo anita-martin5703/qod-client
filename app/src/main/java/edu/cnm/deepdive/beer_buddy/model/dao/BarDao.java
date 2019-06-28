@@ -17,6 +17,6 @@ public interface BarDao {
   LiveData<List<Bar>> getAll();
 
   @Query("SELECT * FROM Bar WHERE id = :id")
-  LiveData<Bar> getAll(long id);
+  LiveData<Bar> findById(Long id);
 
 }

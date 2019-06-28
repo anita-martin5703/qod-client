@@ -1,32 +1,41 @@
 package edu.cnm.deepdive.beer_buddy.model.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
-@Entity
-  public class Beer {
+@Entity(
+    indices = {
+        @Index(value = "name", unique = true)
+    }
+)
+  public class Beer implements Serializable {
+
+  private static final long serialVersionUID = 1l;
 
   @PrimaryKey(autoGenerate = true)
-  private long id;
+  private Long id;
   @ColumnInfo(name = "beer_id", index = true)
-  private long beerId;
+  private Long beerId;
   private String name;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public long getBeerId() {
+  public Long getBeerId() {
     return beerId;
   }
 
-  public void setBeerId(long beerId) {
+  public void setBeerId(Long beerId) {
     this.beerId = beerId;
   }
 
@@ -36,5 +45,11 @@ import androidx.room.PrimaryKey;
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return name;
   }
 }

@@ -1,5 +1,7 @@
 package edu.cnm.deepdive.beer_buddy.model.fragments;
 
-public class HappyHourFragment {
+import androidx.fragment.app.Fragment;
+
+public class HappyHourFragment extends Fragment {
 
 }
