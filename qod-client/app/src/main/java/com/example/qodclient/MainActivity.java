@@ -1,8 +1,10 @@
 package com.example.qodclient;
 
+import android.content.DialogInterface;
 import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.qodclient.model.Quote;
@@ -17,28 +19,41 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MainViewModel viewModel;
+    private LiveData<Quote> randomQuote;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setupToolbar();
+        setupFab();
+        setupViewModel();
+    }
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+    private void setupViewModel() {
+        View rootView = findViewById(R.id.root_view);
+        viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         viewModel.getRandomQuote().observe(this, (quote) -> {
-            Toast.makeText(this, quote.getText(), Toast.LENGTH_LONG).show();
+            new AlertDialog.Builder(this)
+                    .setTitle("Random Quote") // TODO Extract to resource.
+                    .setMessage(quote.getText() + quote.getCombinedSources())
+                    .setPositiveButton("Cool!", (dialog, which) -> {})
+                    .create()
+                    .show();
         });
     }
 
-    private LiveData<Quote> randomQuote;
+    private void setupFab() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> viewModel.getRandomQuote());
+    }
+
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
