@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL", '"https://java-bootcamp.cnm.edu/rest/qod/"'
+        buildConfigField "String", "BASE_URL", '"https://java-bootcamp.cnm.edu/rest/qod/quotes/"'
     }
     buildTypes {
         release {

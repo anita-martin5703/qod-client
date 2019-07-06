@@ -11,9 +11,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import java.util.List;
+
 public class MainViewModel extends AndroidViewModel {
 
     private MutableLiveData<Quote> random;
+    private MutableLiveData<List<Quote>> search;
+
     private CompositeDisposable pending = new CompositeDisposable();
 
     public MainViewModel(@NonNull Application application) {
@@ -21,15 +25,16 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     public LiveData<Quote> getRandomQuote() {
-        if (random ==null) {
+        if (random == null) {
             random = new MutableLiveData<>();
         }
         pending.add(
-        QodService.getInstance().random()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(quote -> random.setValue(quote))
+                QodService.getInstance().random()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(quote -> random.setValue(quote))
         );
         return random;
+
     }
 }

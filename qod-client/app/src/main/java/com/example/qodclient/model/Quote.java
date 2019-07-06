@@ -1,5 +1,6 @@
 package com.example.qodclient.model;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleService;
 
 import java.net.URI;
@@ -77,5 +78,11 @@ public class Quote {
             builder.delete(builder.length() - DELIMITER.length(), builder.length());
         }
         return builder.toString();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return getText();
     }
 }

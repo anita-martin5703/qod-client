@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.qodclient.model.Quote;
 import com.example.qodclient.viewmodel.MainViewModel;
@@ -16,6 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle("Random Quote") // TODO Extract to resource.
                     .setMessage(quote.getText() + quote.getCombinedSources())
-                    .setPositiveButton("Cool!", (dialog, which) -> {})
+                    .setPositiveButton("NiCE!", (dialog, which) -> {})
                     .create()
                     .show();
         });
     }
+
+
 
     private void setupFab() {
         FloatingActionButton fab = findViewById(R.id.fab);
